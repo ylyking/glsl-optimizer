@@ -29,8 +29,10 @@ Usage
 -----
 
 Visual Studio 2010 (Windows, x86/x64) and Xcode 5+ (Mac, i386) project files for a static
-library are provided in `projects/vs2010/glsl_optimizer.sln` and `projects/xcode5/glsl_optimizer_lib`
+library were provided in `projects/vs2010/glsl_optimizer.sln` and `projects/xcode5/glsl_optimizer_lib`
 respectively.
+
+There is also Visual Studio 2013 (Windows, x86/x64) project files for a dynamic library.
 
 > Note: only the VS and Xcode project files are maintained and should work at any time.
 > There's also a cmake and gyp build system for Linux et al., and some stuff in contrib folder -
