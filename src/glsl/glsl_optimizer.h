@@ -2,6 +2,16 @@
 #ifndef GLSL_OPTIMIZER_H
 #define GLSL_OPTIMIZER_H
 
+#ifdef GLSL_OPTIMIZER_DYNAMIC
+# ifdef GLSL_OPTIMIZER_EXPORTS
+#  define GLSL_OPTIMIZER_API extern "C" __declspec(dllexport)
+# else
+#  define GLSL_OPTIMIZER_API extern "C" __declspec(dllimport)
+# endif
+#else
+# define GLSL_OPTIMIZER_API
+#endif
+
 /*
  Main GLSL optimizer interface.
  See ../../README.md for more instructions.
@@ -61,17 +71,17 @@ enum glslopt_precision {
 	kGlslPrecCount
 };
 
-glslopt_ctx* glslopt_initialize (glslopt_target target);
-void glslopt_cleanup (glslopt_ctx* ctx);
+GLSL_OPTIMIZER_API glslopt_ctx* glslopt_initialize(glslopt_target target);
+GLSL_OPTIMIZER_API void glslopt_cleanup(glslopt_ctx* ctx);
 
 void glslopt_set_max_unroll_iterations (glslopt_ctx* ctx, unsigned iterations);
 
-glslopt_shader* glslopt_optimize (glslopt_ctx* ctx, glslopt_shader_type type, const char* shaderSource, unsigned options);
-bool glslopt_get_status (glslopt_shader* shader);
-const char* glslopt_get_output (glslopt_shader* shader);
+GLSL_OPTIMIZER_API glslopt_shader* glslopt_optimize(glslopt_ctx* ctx, glslopt_shader_type type, const char* shaderSource, unsigned options);
+GLSL_OPTIMIZER_API bool glslopt_get_status(glslopt_shader* shader);
+GLSL_OPTIMIZER_API const char* glslopt_get_output(glslopt_shader* shader);
 const char* glslopt_get_raw_output (glslopt_shader* shader);
 const char* glslopt_get_log (glslopt_shader* shader);
-void glslopt_shader_delete (glslopt_shader* shader);
+GLSL_OPTIMIZER_API void glslopt_shader_delete(glslopt_shader* shader);
 
 int glslopt_shader_get_input_count (glslopt_shader* shader);
 void glslopt_shader_get_input_desc (glslopt_shader* shader, int index, const char** outName, glslopt_basic_type* outType, glslopt_precision* outPrec, int* outVecSize, int* outMatSize, int* outArraySize, int* outLocation);
