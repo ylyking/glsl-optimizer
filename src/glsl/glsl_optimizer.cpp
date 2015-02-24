@@ -642,7 +642,7 @@ const char* glslopt_get_raw_output (glslopt_shader* shader)
 	return shader->rawOutput;
 }
 
-const char* glslopt_get_log (glslopt_shader* shader)
+GLSL_OPTIMIZER_API const char* glslopt_get_log(glslopt_shader* shader)
 {
 	return shader->infoLog;
 }

@@ -80,7 +80,7 @@ GLSL_OPTIMIZER_API glslopt_shader* glslopt_optimize(glslopt_ctx* ctx, glslopt_sh
 GLSL_OPTIMIZER_API bool glslopt_get_status(glslopt_shader* shader);
 GLSL_OPTIMIZER_API const char* glslopt_get_output(glslopt_shader* shader);
 const char* glslopt_get_raw_output (glslopt_shader* shader);
-const char* glslopt_get_log (glslopt_shader* shader);
+GLSL_OPTIMIZER_API const char* glslopt_get_log(glslopt_shader* shader);
 GLSL_OPTIMIZER_API void glslopt_shader_delete(glslopt_shader* shader);
 
 int glslopt_shader_get_input_count (glslopt_shader* shader);
